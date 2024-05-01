@@ -34,12 +34,23 @@ const MobileNavbar = () => {
             </div>
           </SheetContent>
         </Sheet>
-        <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
+        <div className="flex h-[60px] min-h-[60px] items-center gap-x-4">
           <Logo withLogo withHide={true} />
         </div>
         <div className="flex items-center gap-2">
           <ThemeSwitcherButton />
-          <UserButton afterSignOutUrl="/sign-in" />
+          <UserButton
+            afterSignOutUrl="/sign-in"
+            appearance={{
+              elements: {
+                avatarBox: {
+                  width: '38px',
+                  height: '38px',
+                  '&:hover': 'none',
+                },
+              },
+            }}
+          />
         </div>
       </nav>
     </div>

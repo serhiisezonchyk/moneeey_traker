@@ -17,15 +17,15 @@ const NavbarItem = ({ link, label, onClick }: NavbarItemProps) => {
         href={link}
         className={cn(
           buttonVariants({ variant: 'ghost' }),
-          'w-full justify-start text-lg text-muted-foreground hover:text-foreground',
-          isActive && 'text-foreground',
+          'w-full justify-start text-md text-muted-foreground hover:text-primary',
+          isActive && 'text-primary',
         )}
         onClick={() => onClick?.()}
       >
         {label}
       </Link>
       {isActive && (
-        <div className="absolute -bottom-[2px] left-1/2 hidden h-[2px] w-[80%] -translate-x-1/2 rounded-xl  bg-foreground md:block"></div>
+        <div className="absolute -bottom-[2px] left-1/2 hidden h-[2px] w-[80%] -translate-x-1/2 rounded-xl  bg-primary md:block"></div>
       )}
     </div>
   );
