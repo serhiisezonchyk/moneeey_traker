@@ -24,6 +24,7 @@ const page = async () => {
           <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
             <CreateTransactionDialog
               trigger={
+                
                 <Button
                   variant="outline"
                   className="w-full sm:w-[145px] border-emerald-500 bg-emerald-700 text-white hover:bg-emerald-500 hover:text-white dark:bg-emerald-950 dark:hover:bg-emerald-700 "
