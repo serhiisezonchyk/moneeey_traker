@@ -6,7 +6,7 @@ import { UserSettings } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import { TrendingDown, TrendingUp, Wallet } from 'lucide-react';
 import { useMemo } from 'react';
-import StatCard from './_statCards/StatCard';
+import StatCard from './StatCard';
 interface StatCardsProps {
   from: Date;
   to: Date;

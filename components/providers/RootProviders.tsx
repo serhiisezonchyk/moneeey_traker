@@ -1,9 +1,8 @@
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { ThemeProvider } from 'next-themes';
 import React, { ReactNode } from 'react';
+import { ThemeProvider } from './ThemeProvider';
 interface RootProviderProps {
   children: ReactNode;
 }
@@ -11,10 +10,10 @@ const RootProviders = ({ children }: RootProviderProps) => {
   const [queryClient] = React.useState(() => new QueryClient({}));
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
         {children}
       </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 };

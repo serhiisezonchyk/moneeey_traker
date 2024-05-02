@@ -89,8 +89,8 @@ const CreateTransactionDialog = ({ trigger, type }: CreateTransactionDialogProps
             Create a new
             <span
               className={cn(
-                'm-1',
-                type === 'income' ? 'text-emerald-700 dark:text-emerald-950' : 'text-rose-700 dark:text-rose-950',
+                'mx-1',
+                type === 'income' ? 'text-emerald-700' : 'text-rose-700',
               )}
             >
               {type}

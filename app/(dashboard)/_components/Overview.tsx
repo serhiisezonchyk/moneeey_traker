@@ -5,7 +5,7 @@ import { UserSettings } from '@prisma/client';
 import { differenceInDays, startOfMonth } from 'date-fns';
 import React from 'react';
 import { toast } from 'sonner';
-import StatCards from './StatCards';
+import StatCards from './_statCards/StatCards';
 import CategoryStats from './_categoryStats/CategoryStats';
 
 interface OverviewProps {
