@@ -1,7 +1,12 @@
 'use client';
+import { DateRangePicker } from '@/components/ui/date-range-picker';
+import { MAX_DATE_RANGE_DAYS } from '@/lib/constants';
 import { UserSettings } from '@prisma/client';
-import { startOfMonth } from 'date-fns';
+import { differenceInDays, startOfMonth } from 'date-fns';
 import React from 'react';
+import { toast } from 'sonner';
+import StatCards from './StatCards';
+import CategoryStats from './CategoryStats';
 
 interface OverviewProps {
   userSettings: UserSettings;
@@ -11,7 +16,33 @@ const Overview = ({ userSettings }: OverviewProps) => {
     from: startOfMonth(new Date()),
     to: new Date(),
   });
-  return <div>Overview</div>;
+  return (
+    <>
+      <div className="items-top container flex flex-wrap justify-between gap-2 py-6">
+        <h2 className="text-3xl font-bold">Overview</h2>
+        <div className="flex items-center gap-3">
+          <DateRangePicker
+            initialDateFrom={dateRange.from}
+            initialDateTo={dateRange.to}
+            showCompare={false}
+            onUpdate={(values) => {
+              const { from, to } = values.range;
+              if (!from || !to) return;
+              if (differenceInDays(to, from) > MAX_DATE_RANGE_DAYS) {
+                toast.error(`The selected date range is too big. Max allowed date is ${MAX_DATE_RANGE_DAYS} days`);
+                return;
+              }
+              setDateRange({ from, to });
+            }}
+          />
+        </div>
+      </div>
+      <div className="container flex flex-col w-full gap-2">
+        <StatCards userSettings={userSettings} from={dateRange.from} to={dateRange.to} />
+        <CategoryStats userSettings={userSettings} from={dateRange.from} to={dateRange.to} />
+      </div>
+    </>
+  );
 };
 
 export default Overview;

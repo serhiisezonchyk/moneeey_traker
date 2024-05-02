@@ -18,15 +18,15 @@ const page = async () => {
   }
   return (
     <div className="h-full bg-background">
-      <div className="container max-w-3xl border-b bg-card">
-        <div className="flex-warp container flex items-center justify-between gap-6 py-8">
+      <div className="container border-b bg-card">
+        <div className="flex flex-wrap items-center justify-between gap-6 py-8">
           <p className="text-3xl font-bold">Hello,{user.firstName} 👋</p>
-          <div className="flex items-center gap-3">
+          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
             <CreateTransactionDialog
               trigger={
                 <Button
                   variant="outline"
-                  className="border-emerald-500 bg-emerald-700 text-white hover:bg-emerald-500 hover:text-white dark:bg-emerald-950 dark:hover:bg-emerald-700"
+                  className="w-full sm:w-[145px] border-emerald-500 bg-emerald-700 text-white hover:bg-emerald-500 hover:text-white dark:bg-emerald-950 dark:hover:bg-emerald-700 "
                 >
                   New income 💸
                 </Button>
@@ -37,7 +37,7 @@ const page = async () => {
               trigger={
                 <Button
                   variant="outline"
-                  className="border-rose-500 bg-rose-700 text-white hover:bg-rose-500 hover:text-white dark:bg-rose-950 dark:hover:bg-rose-700"
+                  className="w-full sm:w-[145px] border-rose-500 bg-rose-700 text-white hover:bg-rose-500 hover:text-white dark:bg-rose-950 dark:hover:bg-rose-700"
                 >
                   New expence 😑
                 </Button>
