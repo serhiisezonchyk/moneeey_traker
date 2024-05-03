@@ -48,7 +48,7 @@ const CategoryList = ({ type }: { type: TransactionType }) => {
         </CardHeader>
         <Separator />
         {!dataAvailable && (
-          <div className="flex h-40 w-full items-center justify-center">
+          <div className="flex h-40 w-full items-center justify-center flex-col">
             <p>
               No <span className={cn('m-1', type === 'income' ? 'text-emerald-500' : 'text-rose-500')}>{type}</span>
               categories yet
