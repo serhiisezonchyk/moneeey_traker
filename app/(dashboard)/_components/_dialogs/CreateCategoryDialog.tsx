@@ -141,8 +141,12 @@ const CreateCategoryDialog = ({ type, onSuccessCallback, trigger }: CreateCatego
                           )}
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-full" align="center">
+                      <PopoverContent className="h-64 w-full overflow-y-scroll p-0" align="center">
                         <Picker
+                          emojiButtonSize={26}
+                          emojiSize={18}
+                          perLine={8}
+                          previewPosition="none"
                           theme={theme.resolvedTheme}
                           data={data}
                           onEmojiSelect={(emoji: { native: string }) => {

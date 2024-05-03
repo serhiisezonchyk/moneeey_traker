@@ -129,7 +129,7 @@ const CreateTransactionDialog = ({ trigger, type }: CreateTransactionDialogProps
                 </FormItem>
               )}
             />
-            <div className="flex justify-between gap-2">
+            <div className="flex justify-between gap-2 flex-wrap sm:flex-nowrap">
               <FormField
                 control={form.control}
                 name="category"
@@ -151,7 +151,7 @@ const CreateTransactionDialog = ({ trigger, type }: CreateTransactionDialogProps
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="mr-2">Transaction date</FormLabel>
-                    <Popover>
+                    <Popover >
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button

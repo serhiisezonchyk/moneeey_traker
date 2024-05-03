@@ -4,12 +4,14 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { CircleDollarSignIcon } from 'lucide-react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Budget tracker',
-  description: 'Manage your expences easily',
+  title: 'Money?!',
+  description:
+    'Hey, here you can manage your expenses easily👋 Just sign in (Or sign up if you don`t have one) and start!',
 };
 
 export default function RootLayout({

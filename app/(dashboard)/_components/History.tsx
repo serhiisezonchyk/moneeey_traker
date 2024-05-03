@@ -53,11 +53,11 @@ const History = ({ userSettings }: OverviewProps) => {
             </div>
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="overflow-x-scroll">
           <SkeletonWrapper isLoading={historyDataQuery.isFetching}>
             {dataAvailable && (
-              <ResponsiveContainer width={'100%'} height={300}>
-                <BarChart height={300} data={historyDataQuery.data} barCategoryGap={5}>
+              <ResponsiveContainer width={'100%'} height={300} minWidth={800} >
+                <BarChart height={300} data={historyDataQuery.data} barCategoryGap={5} className={'cursor-pointer'} >
                   <defs>
                     <linearGradient id="incomeBar" x1={0} y1={0} x2={0} y2={1}>
                       <stop offset={'0'} stopColor="#10b981" stopOpacity={'1'}></stop>
@@ -97,6 +97,8 @@ const History = ({ userSettings }: OverviewProps) => {
                     className="cursor-pointer"
                   />
                   <Tooltip
+                    trigger="click"
+                    cursorStyle='pointer'
                     cursor={{ opacity: 0.1 }}
                     content={(props) => <CustomTooltip formatter={formatter} {...props} />}
                   />

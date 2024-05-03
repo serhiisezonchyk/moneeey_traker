@@ -6,6 +6,7 @@ import { TabsList } from '@radix-ui/react-tabs';
 import { useQuery } from '@tanstack/react-query';
 import MonthSelector from './MonthSelector';
 import YearSelector from './YearSelector';
+import { cn } from '@/lib/utils';
 interface HistoryPeriodSelectorProps {
   period: Period;
   setPeriod: (period: Period) => void;
