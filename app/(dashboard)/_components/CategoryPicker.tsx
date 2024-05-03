@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import React, { useCallback, useEffect } from 'react';
 import CategoryRow from './CategoryRow';
-import CreateCategoryDialog from './CreateCategoryDialog';
+import CreateCategoryDialog from './_dialogs/CreateCategoryDialog';
 interface CategoryPickerProps {
   type: TransactionType;
   onChange: (value: string) => void;

@@ -24,8 +24,8 @@ import { CalendarIcon, Loader2 } from 'lucide-react';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { CreateTransaction } from '../_actions/transactions';
-import CategoryPicker from './CategoryPicker';
+import { CreateTransaction } from '../../_actions/transactions';
+import CategoryPicker from '../CategoryPicker';
 interface CreateTransactionDialogProps {
   trigger: React.ReactNode;
   type: TransactionType;

@@ -27,12 +27,13 @@ import { useTheme } from 'next-themes';
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { CreateCategory } from '../_actions/categories';
+import { CreateCategory } from '../../_actions/categories';
 interface CreateCategoryDialogProps {
   type: TransactionType;
   onSuccessCallback: (category: Category) => void;
+  trigger?: React.ReactNode;
 }
-const CreateCategoryDialog = ({ type, onSuccessCallback }: CreateCategoryDialogProps) => {
+const CreateCategoryDialog = ({ type, onSuccessCallback, trigger }: CreateCategoryDialogProps) => {
   const [open, setOpen] = React.useState<boolean>(false);
   const form = useForm<CreateCategorySchemaType>({
     resolver: zodResolver(CreateCategorySchema),
@@ -79,25 +80,22 @@ const CreateCategoryDialog = ({ type, onSuccessCallback }: CreateCategoryDialogP
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant={'ghost'}
-          className="flex border-separate items-center justify-start rounded-none border-b px-3 py-3 text-muted-foreground"
-        >
-          <PlusSquare className="mr-2 size-4" /> Create new
-        </Button>
+        {trigger ? (
+          trigger
+        ) : (
+          <Button
+            variant={'ghost'}
+            className="flex border-separate items-center justify-start rounded-none border-b  px-3 py-3 text-muted-foreground"
+          >
+            <PlusSquare className="mr-2 size-4" /> Create new
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
             Create
-            <span
-              className={cn(
-                'm-1',
-                type === 'income' ? 'text-emerald-700 dark:text-emerald-950' : 'text-rose-700 dark:text-rose-950',
-              )}
-            >
-              {type}
-            </span>
+            <span className={cn('m-1', type === 'income' ? 'text-emerald-700 ' : 'text-rose-700 ')}>{type}</span>
             category
           </DialogTitle>
           <DialogDescription>Categories are used to group your transactions</DialogDescription>

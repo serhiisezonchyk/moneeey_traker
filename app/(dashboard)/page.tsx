@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import prisma from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
-import CreateTransactionDialog from './_components/CreateTransactionDialog';
+import CreateTransactionDialog from './_components/_dialogs/CreateTransactionDialog';
 import Overview from './_components/Overview';
 import History from './_components/History';
 
